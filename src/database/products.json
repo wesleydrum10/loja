@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Smartphone Motorola",
+    "price": 1199.99,
+    "inclusion_date": "2024-01-26",
+    "image": "https://cdn.dooca.store/292/products/camiseta-attack-on-titan-levi-vs-beast-estampa.jpg?v=1622657264"
+  },
+  {
+    "name": "Laptop Acer",
+    "price": 2999.99,
+    "inclusion_date": "2024-01-25",
+    "image": "https://cdn.dooca.store/292/products/camiseta-attack-on-titan-levi-vs-beast-estampa.jpg?v=1622657264"
+  },
+  {
+    "name": "Wireless Earbuds Ultra",
+    "price": 79.99,
+    "inclusion_date": "2024-01-24",
+    "image": "https://cdn.dooca.store/292/products/camiseta-attack-on-titan-levi-vs-beast-estampa.jpg?v=1622657264"
+  },
+  {
+    "name": "4K Smart TV Lg",
+    "price": 2299.99,
+    "inclusion_date": "2024-01-23",
+    "image": "https://cdn.dooca.store/292/products/camiseta-attack-on-titan-levi-vs-beast-estampa.jpg?v=1622657264"
+  },
+  {
+    "name": "Gaming Console Playstation",
+    "price": 4399.99,
+    "inclusion_date": "2024-01-22",
+    "image": "https://cdn.dooca.store/292/products/camiseta-attack-on-titan-levi-vs-beast-estampa.jpg?v=1622657264"
+  }
+]
