@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom'
-import Products from './pages/Products'
+import Products from './pages/Products/Products'
 import Checkout from './pages/Checkout'
 
 export default function Router() {
