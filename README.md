@@ -1,31 +1,58 @@
-# React + TypeScript + Vite
+# Shopping Online Store.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto tem por objetivo simular uma loja online de produtos eletrônicos. NÃO PODENDO REALIZAR COMPRAS REAIS!
 
-Currently, two official plugins are available:
+## Índice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Instalação](#instalação)
+- [Tecnologias](#tecnologias)
+- [Funcionalidades](#funcionalidades)
+- [Criado por:](#criado)
 
-## Expanding the ESLint configuration
+## Instalação
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Para instalar as dependências do projeto use: 
+```bash
+npm install
+```
+ou
+```bash
+yarn install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# loja
+Criei uma api com json-server para listar os produtos. Antes de rodar o projeto, digite o seguinte comando para ativar a api no localhost da sua máquina. Ao rodar esse comando, ele vai usar a porta 3000 por padrão. É extremamente importante usar a porta 3000, pois a configuração da url da api no projeto, está apontando para essa porta. Por favor verifique se não existe algum outro projeto rodando.
+
+```bash
+npx json-server --watch .\src\database\products.json
+````
+Para rodar o projeto 
+```bash
+npm run dev
+```
+ou 
+```bash
+yarn dev
+```
+
+## Tecnologias
+
+- [React](https://pt-br.legacy.reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Json-server](https://www.npmjs.com/package/json-server/v/0.17.1)
+- [Styled-Components](https://styled-components.com)
+
+## Funcionalidades
+
+- Tela de listagem de produtos com filtros de nome, data de inclusão, e preço do produto.
+- Ordenação por data de inclusão e preço.
+- Adicionar o produto na sacola selecionando o card do produto.
+- Botão de adicionar mostra a quantidade de produtos adicionados.
+- Ao clicar na sacola, mostra um resumo dos produtos adicionados, com imagem botão para icrementar e decrementar produto. Totalizador do valor de cada produto x quantidade.
+- Botão de Ir para tela checkout na sacola quando tiver produtos.
+- Mensagens de erro, informação e sucessso.
+- Layout responsivo.
+
+  ## Criado por [@wesley](https://www.linkedin.com/in/wesley-oliveira-sistemasinformacao/)
+
+

@@ -1,5 +1,6 @@
-import { useState } from "react";
-import Logo from "../../assets/logo.png";
+import { useEffect, useState } from "react";
+import Logo from "../../assets/shopping.png";
+import Bag from "../../assets/bag.png";
 import {
   HeaderContainer,
   ImageContainer,
@@ -7,29 +8,84 @@ import {
   BagContainer,
   CountBag,
   ContentCart,
+  BtnCheckout,
+  ImageBag,
 } from "./styles";
-import BagIcon from "../../icons/bagIcon";
 import BagItens from "../BagItens/BagItens";
-import { ProductsList } from "../../database/products";
+import { useBag } from "../../context/useBag";
+import { formatPrice } from "../../util/formatPrice";
+import { useListing } from "../../context/useListing";
+import { ParamsSearch } from "../../@types/types";
 
-export default function Header() {
+interface OriginPage {
+  origin: string;
+}
+
+export default function Header({ origin }: OriginPage) {
   const [showContentCart, setShowContentCart] = useState(false);
+  const [textParams, setTextParams] = useState<ParamsSearch>();
+  const { bag } = useBag()
+  const { searchProducts, listingProducts } = useListing()
+
+  const itensBag = bag?.length
+
+  const bagFormatted = bag.map(product => ({
+    ...product,
+    priceFormatted: formatPrice(product.price),
+    totalFormattedPrice: formatPrice(product.amount * product.price)
+  }))
+
+  const handleInputSearch = (e: any) => {
+    let valueParams: string = `name_like=${e.target.value}`
+    setTimeout(() => {
+      setTextParams(valueParams)
+    }, 1000)
+
+  }
+
+  useEffect(() => {
+    if (textParams) {
+      searchProducts(textParams)
+    } else {
+      listingProducts()
+    }
+
+  }, [textParams])
 
   return (
     <HeaderContainer>
-      <ImageContainer src={Logo} alt="logo" />
-      <InputContainer type="text" placeholder="Olá, o que você procura?" />
-      <BagContainer onClick={() => setShowContentCart(!showContentCart)}>
-        <CountBag>1</CountBag>
-        <BagIcon />
+      <a href="/">
+        <ImageContainer src={Logo} alt="logo" />
+      </a>
+      {origin !== 'checkout' && (
+        <InputContainer type="text" placeholder="Olá, o que você procura?" onChange={(e) => handleInputSearch(e)} />
+      )}
+      <BagContainer onClick={() => { origin !== 'checkout' && setShowContentCart(!showContentCart) }}>
+        <CountBag><span>{itensBag}</span></CountBag>
+        <ImageBag src={Bag} alt="Sacola" />
       </BagContainer>
-        {showContentCart && (
-          <ContentCart>
-            <BagItens name={ProductsList[0].name} image={ProductsList[0].image} price={ProductsList[0].price} key={ProductsList[0].id}/>
-            <BagItens name={ProductsList[1].name} image={ProductsList[1].image} price={ProductsList[1].price} key={ProductsList[1].id}/>
-            <BagItens name={ProductsList[2].name} image={ProductsList[2].image} price={ProductsList[2].price} key={ProductsList[2].id}/>
-          </ContentCart>
-        )}
+      {showContentCart && (
+        <ContentCart>
+          {!!bagFormatted.length && (
+            <p>Resumo da sacola</p>
+          )}
+          {bagFormatted.map(product =>
+            <BagItens
+              id={product.id}
+              amount={product.amount}
+              name={product.name}
+              image={product.image}
+              price={product.price}
+              key={product.id}
+            />
+          )}
+          {!!bagFormatted.length ? (
+            <a href="/checkout">
+              <BtnCheckout>Ir para Checkout</BtnCheckout>
+            </a>
+          ) : <p>Sem itens na sacola.</p>}
+        </ContentCart>
+      )}
     </HeaderContainer>
   );
 }

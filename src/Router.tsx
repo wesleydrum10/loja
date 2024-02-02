@@ -1,11 +1,11 @@
 import {Routes, Route} from 'react-router-dom'
-import Products from './pages/Products/Products'
-import Checkout from './pages/Checkout'
+import Checkout from './pages/checkout/Checkout'
+import ProductsPage from './pages/Products/Products'
 
 export default function Router() {
   return(
     <Routes>
-      <Route path='/' element={<Products/>}/>
+      <Route path='/' element={<ProductsPage/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
     </Routes>
   )
