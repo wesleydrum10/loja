@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { ParamsSearch, Products } from "../@types/types";
+import { Products } from "../@types/types";
 import { api } from "../api/api";
 import { formatPrice } from "../util/formatPrice";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ interface ListingProviderProps {
 interface ListingContextData {
     productsList: Products[] | undefined;
     listingProducts: () => void;
-    searchProducts: (params: ParamsSearch) => void;
+    searchProducts: (params: string) => void;
 }
 
 const ListingContext = createContext<ListingContextData>({} as ListingContextData)
@@ -30,7 +30,7 @@ export function ListingProvider({ children }: ListingProviderProps) {
         setProductsList(formatedPriceProduct)
     }
 
-    async function searchProducts(params: ParamsSearch) {
+    async function searchProducts(params: string) {
         const { data } = await api.get<Products[]>(`/produtos?${params}`)
 
         const formatedPriceProduct = data.map(product => ({

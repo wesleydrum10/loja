@@ -21,7 +21,6 @@ export default function ProductsPage() {
   const [sortOldestPrice, setSortOldestPrice] = useState<boolean>()
   const [sortMostRecentPrice, setSortMostRecentPrice] = useState<boolean>()
   const [paramsSortValue, setParamsSortValue] = useState<string>()
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>()
 
   const { searchProducts, listingProducts } = useListing()
 
@@ -84,11 +83,6 @@ export default function ProductsPage() {
     setParamsSortValue(paramsSort)
   }
 
-  const checkInputs = () => {
-    setIsButtonDisabled(!(filterNameValue?.trim() !== '' || filterInclusionDateValue?.trim() !== '' || filterPriceValue.trim() !== 0));
-  };
-
-
   useEffect(() => {
     if (paramsFilterValue) {
       searchProducts(paramsFilterValue)
@@ -135,11 +129,11 @@ export default function ProductsPage() {
             </label>
             {filterPrice && (
               <div>
-                <input className="input-filter" type="number" name="price" onChange={(e) => setFilterPriceValue(e.target.value)} />
+                <input className="input-filter" type="number" name="price" onChange={(e) => setFilterPriceValue(e.target.value as unknown as number)} />
               </div>
             )}
           </ContentLabel>
-          <BtnFilter disabled={isButtonDisabled} onClick={() => handleFilters()}>{paramsFilterValue === undefined ? 'Filtrar' : 'Limpar filtros'}</BtnFilter>
+          <BtnFilter onClick={() => handleFilters()}>{paramsFilterValue === undefined ? 'Filtrar' : 'Limpar filtros'}</BtnFilter>
           <h3>Ordernar por:</h3>
           <ContentLabel>
             <label onClick={() => setOrderInclusionDate(!orderInclusionDate)}>

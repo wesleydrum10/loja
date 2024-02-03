@@ -15,7 +15,6 @@ import BagItens from "../BagItens/BagItens";
 import { useBag } from "../../context/useBag";
 import { formatPrice } from "../../util/formatPrice";
 import { useListing } from "../../context/useListing";
-import { ParamsSearch } from "../../@types/types";
 
 interface OriginPage {
   origin: string;
@@ -23,7 +22,7 @@ interface OriginPage {
 
 export default function Header({ origin }: OriginPage) {
   const [showContentCart, setShowContentCart] = useState(false);
-  const [textParams, setTextParams] = useState<ParamsSearch>();
+  const [textParams, setTextParams] = useState<string>();
   const { bag } = useBag()
   const { searchProducts, listingProducts } = useListing()
 
@@ -36,7 +35,7 @@ export default function Header({ origin }: OriginPage) {
   }))
 
   const handleInputSearch = (e: any) => {
-    let valueParams: string = `name_like=${e.target.value}`
+    let valueParams = `name_like=${e.target.value}`
     setTimeout(() => {
       setTextParams(valueParams)
     }, 1000)
@@ -45,7 +44,7 @@ export default function Header({ origin }: OriginPage) {
 
   useEffect(() => {
     if (textParams) {
-      searchProducts(textParams)
+      searchProducts(textParams as string)
     } else {
       listingProducts()
     }

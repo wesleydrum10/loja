@@ -37,5 +37,6 @@ export interface ParamsSearch {
     sortOldestPrice: boolean | false;
     sortMostRecentPrice: boolean | false;
     paramsSort: string;
-    valueParams: string;
+    valueParams: string | undefined;
+    textParams: string | undefined
 }
