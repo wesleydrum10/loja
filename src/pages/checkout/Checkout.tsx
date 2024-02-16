@@ -24,7 +24,7 @@ export default function Checkout() {
 
   return (
     <>
-      <Header origin="checkout" />
+      {/* <Header origin="checkout" /> */}
       <ChekoutContainer>
         {bagFormatted.map(product =>
           <BagItens
