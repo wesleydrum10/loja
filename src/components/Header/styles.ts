@@ -11,11 +11,15 @@ export const HeaderContainer = styled.header`
   @media screen and (max-width: 600px) {
     height: 100%;
     gap: 5px;
+    gap: 10px;
   }
 `
 export const ImageContainer = styled.img`
   width: 10vw;
   height: 100%;
+  @media screen and (max-width: 600px) {
+    width: 20vw;
+  }
 `
 
 export const InputContainer = styled.input`
@@ -25,7 +29,7 @@ export const InputContainer = styled.input`
   border: 0;
   padding: 0 10px;
   @media screen and (max-width: 600px) {
-    width: 45%;
+    width: auto;
   }
 `
 export const BagContainer = styled.div`
@@ -33,7 +37,6 @@ export const BagContainer = styled.div`
   cursor: pointer;
   @media screen and(max-width: 600px) {
     width: auto;
-    margin-right: 10px;
   }
 `
 export const CountBag = styled.div`
@@ -115,4 +118,8 @@ export const BtnCheckout = styled.button`
 export const ImageBag = styled.img`
   width: 44px;
   height: 44px;
+  @media screen and (max-width: 600px) {
+    width: auto;
+    height: auto;
+  }
 `

@@ -15,4 +15,5 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  "@typescript-eslint/no-var-requires": "error"
 }

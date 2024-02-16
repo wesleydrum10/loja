@@ -1,9 +1,26 @@
 import styled from "styled-components";
 
+export const ShowFilter = styled.span`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-left: 10px;
+  height: 5vh;
+  width: 100%;
+  font-weight: 700;
+  span {
+    cursor: pointer;
+  }
+  @media screen and (max-width: 600px){
+    justify-content: center;
+  }
+`
+
 export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
-  margin: 50px 2vw 10px;
+  margin: 10px 2vw 10px;
   gap: 20px;
   min-height: 70vh;
 

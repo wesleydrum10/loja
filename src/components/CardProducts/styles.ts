@@ -47,7 +47,7 @@ export const CardContainer = styled.div`
     }
   }
   @media screen and (max-width: 600px) {
-    height: auto;
+    min-height: 500px;
     width: 100%;
   }
   @media screen and (min-width: 1650px) {
