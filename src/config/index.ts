@@ -6,6 +6,6 @@ export default {
   isProduction: import.meta.env.MODE === "production",
   env: import.meta.env.DEV,
   publicUrl: {
-    url: VITE_APP_PUBLIC_URL || 'http://localhost:3000/',
+    url: VITE_APP_PUBLIC_URL,
   },
 };
