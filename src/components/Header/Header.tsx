@@ -56,9 +56,9 @@ export default function Header({ origin }: OriginPage) {
       <a href="/">
         <ImageContainer src={Logo} alt="logo" />
       </a>
-      {origin !== 'checkout' && (
+      {/* {origin !== 'checkout' && ( */}
         <InputContainer type="text" placeholder="Olá, o que você procura?" onChange={(e) => handleInputSearch(e)} />
-      )}
+      {/* )} */}
       <BagContainer onClick={() => { origin !== 'checkout' && setShowContentCart(!showContentCart) }}>
         <CountBag><span>{itensBag}</span></CountBag>
         <ImageBag src={Bag} alt="Sacola" />
