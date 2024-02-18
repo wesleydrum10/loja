@@ -1,5 +1,4 @@
 import BagItens from "../../components/BagItens/BagItens";
-import Header from "../../components/Header/Header";
 import { useBag } from "../../context/useBag";
 import { formatPrice } from "../../util/formatPrice";
 import { BtnFinished, ChekoutContainer, FinalizePurchaseContent } from "./styles";
@@ -24,7 +23,7 @@ export default function Checkout() {
 
   return (
     <>
-      {/* <Header origin="checkout" /> */}
+      
       <ChekoutContainer>
         {bagFormatted.map(product =>
           <BagItens
