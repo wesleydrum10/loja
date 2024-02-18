@@ -25,7 +25,7 @@ export default function Checkout() {
     <>
       
       <ChekoutContainer>
-        {bagFormatted.map(product =>
+        {bagFormatted?.map(product =>
           <BagItens
             id={product.id}
             amount={product.amount}
@@ -35,7 +35,7 @@ export default function Checkout() {
             key={product.id}
           />
         )}
-        {!!bagFormatted.length ? (
+        {!!bagFormatted?.length ? (
           <FinalizePurchaseContent>
             <h2>Total: {total}</h2>
             <BtnFinished onClick={() => clearBag()}>Finalizar compra</BtnFinished>
