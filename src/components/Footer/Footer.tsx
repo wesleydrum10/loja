@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <FooterContainer>
             <div>
-                <h5>Projeto desenvolvido para teste técnico. &copy; Desenvolvido por Wesley Oliveira</h5>
+                <h5>Projeto desenvolvido por Wesley Oliveira &copy;</h5>
             </div>
         </FooterContainer>
     )

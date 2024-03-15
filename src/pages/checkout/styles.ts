@@ -37,3 +37,8 @@ export const BtnFinished = styled.button`
     }
     
 `
+export const Return = styled.a`
+    display: flex;
+    outline: none;
+    margin: 50px 0px 0px 50px;
+`

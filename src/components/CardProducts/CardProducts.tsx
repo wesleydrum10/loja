@@ -21,9 +21,6 @@ export default function CardProducts(product: Products) {
     addProduct(id)
   }
 
-  console.log('items', bagItemsAmount[product.id])
-  console.log('quantity', product.amount)
-
   return (
     <CardContainer>
       <CardContent key={product.id}>

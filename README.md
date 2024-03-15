@@ -23,15 +23,19 @@ yarn install
 Criei uma api com json-server para listar os produtos. Antes de rodar o projeto, digite o seguinte comando para ativar a api no localhost da sua máquina. Ao rodar esse comando, ele vai usar a porta 3000 por padrão. É extremamente importante usar a porta 3000, pois a configuração da url da api no projeto, está apontando para essa porta. Por favor verifique se não existe algum outro projeto rodando.
 
 ```bash
-npx json-server --watch .\src\database\products.json
+npx json-server --watch ./src/database/products.json
 ````
 Para rodar o projeto 
 ```bash
 npm run dev
 ```
-ou 
+, 
 ```bash
 yarn dev
+```
+ou 
+```bash
+pnpm dev
 ```
 
 ## Tecnologias

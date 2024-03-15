@@ -55,13 +55,13 @@ export const CountBag = styled.div`
     font-size: 1rem;
   }
 `
-export const ContentCart = styled.span`
+export const ContentCart = styled.div`
   position: absolute;
   width: 400px;
   max-height: 400px;
   background-color: #ffffff;
   right: 12vw;
-  top: 17vh;
+  margin-top: 10vh;
   border-radius: 4px;
   padding: 10px;
   box-shadow: 1px 1px 5px #000000;
@@ -89,6 +89,7 @@ export const ContentCart = styled.span`
 
   a {
     outline: none;
+    cursor: pointer;
   }
   
   @media screen and (max-width: 600px) {

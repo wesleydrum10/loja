@@ -17,7 +17,7 @@ export default createGlobalStyle`
     font-family: 'Ruda', sans-serif;
   }
 
-  button {
+  button, a {
     cursor: pointer;
   }
 `;
