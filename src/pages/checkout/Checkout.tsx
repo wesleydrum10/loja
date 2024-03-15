@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import BagItens from "../../components/BagItens/BagItens";
 import { useBag } from "../../context/useBag";
 import { formatPrice } from "../../util/formatPrice";
@@ -6,13 +5,11 @@ import {
   BtnFinished,
   ChekoutContainer,
   FinalizePurchaseContent,
-  Return
 } from "./styles";
 import Header from "../../components/Header/Header";
 
 export default function Checkout() {
   const { bag, clearBag } = useBag();
-  const navigate = useNavigate();
 
   const bagFormatted = bag.map((product) => ({
     ...product,
