@@ -61,7 +61,7 @@ export default function ProductsPage() {
     setOrderInclusionDate(false);
     setOrderPrice(false);
   };
-  
+
   const handleFilters = () => {
     let paramsFilter = "";
 
@@ -169,6 +169,7 @@ export default function ProductsPage() {
                   {filterName && (
                     <div>
                       <input
+                        value={filterNameValue}
                         className="input-filter"
                         type="text"
                         name="name"
@@ -191,6 +192,7 @@ export default function ProductsPage() {
                   {filterInclusionDate && (
                     <div>
                       <input
+                        value={filterInclusionDateValue}
                         className="input-filter"
                         type="date"
                         name="inclusion_date"
@@ -213,6 +215,7 @@ export default function ProductsPage() {
                   {filterPrice && (
                     <div>
                       <input
+                        value={filterPriceValue}
                         className="input-filter"
                         type="number"
                         name="price"
@@ -255,6 +258,7 @@ export default function ProductsPage() {
                       <span>
                         Mais Antigos
                         <input
+                          checked={sortOldestInclusionDate}
                           type="radio"
                           name="inclusion_date"
                           onChange={(e) =>
@@ -265,6 +269,7 @@ export default function ProductsPage() {
                       <span>
                         Mais Recentes
                         <input
+                          checked={sortMostRecentInclusionDate}
                           type="radio"
                           name="inclusion_date"
                           onChange={(e) =>
@@ -289,6 +294,7 @@ export default function ProductsPage() {
                       <span>
                         Maior
                         <input
+                          checked={sortMostRecentPrice}
                           type="radio"
                           name="price"
                           onChange={(e) =>
@@ -299,6 +305,7 @@ export default function ProductsPage() {
                       <span>
                         Menor
                         <input
+                          checked={sortOldestPrice}
                           type="radio"
                           name="price"
                           onChange={(e) => setSortOldestPrice(e.target.checked)}
@@ -312,7 +319,6 @@ export default function ProductsPage() {
             )}
           </FilterContainer>
         )}
-
         <CardList>
           {productsList?.map((product) => (
             <CardProducts

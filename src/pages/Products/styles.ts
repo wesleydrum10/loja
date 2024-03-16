@@ -27,7 +27,7 @@ export const Mark = styled.div`
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: blue;
+  background-color: #086d72;
   margin-left: 5px;
 `;
 
@@ -78,10 +78,10 @@ export const FilterContainer = styled.div`
   display: flex;
   position: absolute;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   z-index: 9999;
   top: 0;
-  background-color: #ffffff;
+  background-color: #f1f1f1f1;
   left: 0;
   margin-left: 20px;
   margin-top: 26vh;
@@ -99,9 +99,14 @@ export const FilterContainer = styled.div`
     outline: none;
     border: 0;
     width: auto;
-    border-bottom: 2px solid #f1f1f1;
+    background-color: transparent;
+    border-bottom: 1px solid #086d72;
     color: #086d72;
     font-weight: 600;
+  }
+
+  input:focus-visible {
+    width: 100%;
   }
 
   .input-filter {
@@ -124,15 +129,15 @@ export const FilterContainer = styled.div`
     width: 95%;
     margin: 10px;
     top: 0;
-    margin-top: 18vh;
+    margin-top: 20vh;
   }
 `;
 export const ContentLabel = styled.div`
   box-shadow: 1px 1px 5px 1px #f1f1f1;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `;
 export const BtnFilter = styled.button`
   width: 100%;
@@ -165,7 +170,7 @@ export const ClearFiltersContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 0 20px 0px 10px;
+  padding: 10px 20px 0px 5px;
 `;
 export const ClearAction = styled.div`
   display: flex;
