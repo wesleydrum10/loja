@@ -13,13 +13,23 @@ export const ShowFilter = styled.span`
   span {
     cursor: pointer;
   }
-  @media screen and (max-width: 600px){
+  div {
+    display: flex;
+  }
+  @media screen and (max-width: 600px) {
     justify-content: center;
     gap: 20px;
     margin-left: 0;
     width: auto;
   }
-`
+`;
+export const Mark = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: blue;
+  margin-left: 5px;
+`;
 
 export const MainContainer = styled.main`
   display: flex;
@@ -33,7 +43,7 @@ export const MainContainer = styled.main`
     height: 83vh;
     overflow-x: hidden;
   }
-`
+`;
 export const CardList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -62,7 +72,7 @@ export const CardList = styled.div`
     padding: 0 10px;
     gap: 0px;
   }
-`
+`;
 export const FilterContainer = styled.div`
   width: 20%;
   display: flex;
@@ -113,34 +123,33 @@ export const FilterContainer = styled.div`
   @media screen and (max-width: 600px) {
     width: 95%;
     margin: 10px;
-    margin-top: 15vh;
+    top: 0;
+    margin-top: 18vh;
   }
-
-`
+`;
 export const ContentLabel = styled.div`
   box-shadow: 1px 1px 5px 1px #f1f1f1;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
-`
+`;
 export const BtnFilter = styled.button`
   width: 100%;
   height: 50px;
   background-color: #101010;
   color: #ffffff;
   &:disabled {
-    opacity: .2;
+    opacity: 0.2;
     cursor: not-allowed;
   }
-`
+`;
 
 export const EmptyReturn = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-`
+`;
 export const BoxSortContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -150,14 +159,14 @@ export const BoxSortContent = styled.div`
     display: flex;
     gap: 10px;
   }
-`
+`;
 export const ClearFiltersContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   padding: 0 20px 0px 10px;
-`
+`;
 export const ClearAction = styled.div`
   display: flex;
   align-items: center;
@@ -166,7 +175,4 @@ export const ClearAction = styled.div`
   span {
     font-size: 14px;
   }
-`
-
-
-
+`;

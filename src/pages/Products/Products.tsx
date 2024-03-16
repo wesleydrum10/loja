@@ -8,6 +8,7 @@ import {
   ContentLabel,
   FilterContainer,
   MainContainer,
+  Mark,
   ShowFilter,
 } from "./styles";
 import CardProducts from "../../components/CardProducts/CardProducts";
@@ -60,19 +61,19 @@ export default function ProductsPage() {
     setOrderInclusionDate(false);
     setOrderPrice(false);
   };
-
+  
   const handleFilters = () => {
     let paramsFilter = "";
 
-    if (filterNameValue !== undefined) {
+    if (!!filterNameValue) {
       paramsFilter = `name_like=${filterNameValue}`;
     }
 
-    if (filterInclusionDateValue !== undefined) {
+    if (!!filterInclusionDateValue) {
       paramsFilter = `${paramsFilter}&inclusion_date=${filterInclusionDateValue}`;
     }
 
-    if (filterPriceValue !== undefined) {
+    if (!!filterPriceValue) {
       paramsFilter = `${paramsFilter}&q=${filterPriceValue}`;
     }
 
@@ -130,10 +131,16 @@ export default function ProductsPage() {
       <Header origin="/" />
       <ShowFilter>
         <span onClick={() => setIsFilter(!isFilter)}>
-          <IoFilterSharp /> {isFilter ? "Esconder filtro" : "Filtrar"}{" "}
+          <div>
+            <IoFilterSharp /> {isFilter ? "Esconder filtro" : "Filtrar"}{" "}
+            {paramsFilterValue && <Mark />}
+          </div>
         </span>
         <span onClick={() => setIsSort(!isSort)}>
-          <GrSort /> {isSort ? "Esconder ordenação" : "Ordenar"}{" "}
+          <div>
+            <GrSort /> {isSort ? "Esconder ordenação" : "Ordenar"}{" "}
+            {paramsSortValue && <Mark />}
+          </div>
         </span>
       </ShowFilter>
       <MainContainer>

@@ -68,6 +68,7 @@ export const ContentCart = styled.div`
   box-shadow: 1px 1px 5px #000000;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 100000;
 
   &::-webkit-scrollbar-track {
     border-radius:4px;
@@ -98,8 +99,8 @@ export const ContentCart = styled.div`
     max-height: 400px;
     background-color: #ffffff;
     right: 1vw;
-    top: 7vh;
-    margin: 0 10px;
+    top: 0;
+    margin: 20px 10px;
   }
 
   @media screen and (max-width: 1300px) {
