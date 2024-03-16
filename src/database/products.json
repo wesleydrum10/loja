@@ -99,6 +99,56 @@
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
       "discounted_product": true,
       "amount": 5
+    },
+    {
+      "id": "11",
+      "name": "Mouse Gamer RGB",
+      "price": 148.99,
+      "inclusion_date": "2024-03-09",
+      "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
+      "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
+      "discounted_product": true,
+      "amount": 5
+    },
+    {
+      "id": "12",
+      "name": "Mouse Gamer RGB",
+      "price": 147.99,
+      "inclusion_date": "2024-03-09",
+      "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
+      "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
+      "discounted_product": true,
+      "amount": 5
+    },
+    {
+      "id": "13",
+      "name": "Mouse Gamer RGB",
+      "price": 146.99,
+      "inclusion_date": "2024-03-09",
+      "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
+      "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
+      "discounted_product": true,
+      "amount": 5
+    },
+    {
+      "id": "14",
+      "name": "Mouse Gamer RGB",
+      "price": 145.99,
+      "inclusion_date": "2024-01-09",
+      "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
+      "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
+      "discounted_product": true,
+      "amount": 5
+    },
+    {
+      "id": "15",
+      "name": "Mouse Gamer RGB",
+      "price": 144.99,
+      "inclusion_date": "2024-01-09",
+      "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
+      "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
+      "discounted_product": true,
+      "amount": 5
     }
   ]
 }

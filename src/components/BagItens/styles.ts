@@ -7,7 +7,7 @@ export const BagContent = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 10px 0px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 4px;
   border: .5px solid #f1f1f1;
   box-shadow: 1px 1px 5px 1px #f1f1f1;

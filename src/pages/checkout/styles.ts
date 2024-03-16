@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
 
 export const ChekoutContainer = styled.main`
-    min-height: 75vh;
+    height: 70vh;
     padding: 5vh 20vw 10vh;
+    overflow-y: scroll;
     h2 {
         text-align: center;
     }

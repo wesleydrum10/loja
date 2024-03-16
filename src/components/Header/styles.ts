@@ -11,7 +11,6 @@ export const HeaderContainer = styled.header`
   @media screen and (max-width: 600px) {
     height: 100%;
     gap: 5px;
-    gap: 10px;
   }
 `
 export const ImageContainer = styled.img`
@@ -23,20 +22,22 @@ export const ImageContainer = styled.img`
 `
 
 export const InputContainer = styled.input`
+  display: flex;
   outline: none;
   width: 40%;
   height: 40px;
   border: 0;
   padding: 0 10px;
   @media screen and (max-width: 600px) {
-    width: auto;
+    display: none;
+    width: 0%;
   }
 `
 export const BagContainer = styled.div`
   width: 7%;
   cursor: pointer;
   @media screen and(max-width: 600px) {
-    width: auto;
+    width: 100%;
   }
 `
 export const CountBag = styled.div`

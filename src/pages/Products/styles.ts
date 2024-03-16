@@ -4,7 +4,8 @@ export const ShowFilter = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 100px;
   margin-left: 10px;
   height: 5vh;
   width: 100%;
@@ -14,6 +15,9 @@ export const ShowFilter = styled.span`
   }
   @media screen and (max-width: 600px){
     justify-content: center;
+    gap: 20px;
+    margin-left: 0;
+    width: auto;
   }
 `
 
@@ -21,12 +25,13 @@ export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   margin: 10px 2vw 10px;
-  gap: 20px;
-  min-height: 70vh;
-
+  height: 65vh;
+  width: 100%;
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    margin: 10px;
+    margin: 0;
+    height: 83vh;
+    overflow-x: hidden;
   }
 `
 export const CardList = styled.div`
@@ -34,7 +39,13 @@ export const CardList = styled.div`
   grid-template-columns: repeat(4, 1fr);
   width: 90%;
   gap: 30px;
-
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @media screen and (max-width: 1550px) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+  }
   @media screen and (max-width: 1250px) {
     grid-template-columns: repeat(2, 1fr);
     width: 70%;
@@ -47,15 +58,23 @@ export const CardList = styled.div`
 
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr;
-    width: 100%;
+    width: auto;
+    padding: 0 10px;
+    gap: 0px;
   }
 `
 export const FilterContainer = styled.div`
   width: 20%;
-  height: auto;
   display: flex;
+  position: absolute;
   flex-direction: column;
   gap: 20px;
+  z-index: 9999;
+  top: 0;
+  background-color: #ffffff;
+  left: 0;
+  margin-left: 20px;
+  margin-top: 26vh;
 
   label {
     display: flex;
@@ -92,7 +111,9 @@ export const FilterContainer = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: 100%;
+    width: 95%;
+    margin: 10px;
+    margin-top: 15vh;
   }
 
 `
@@ -130,3 +151,22 @@ export const BoxSortContent = styled.div`
     gap: 10px;
   }
 `
+export const ClearFiltersContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 20px 0px 10px;
+`
+export const ClearAction = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  span {
+    font-size: 14px;
+  }
+`
+
+
+

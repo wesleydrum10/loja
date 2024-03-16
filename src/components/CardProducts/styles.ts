@@ -1,11 +1,13 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const CardContainer = styled.div`
   transition: 1s;
   border-radius: 4px;
-  border: .5px solid #f1f1f1;
+  border: 1px solid #f1f1f1;
   box-shadow: 1px 1px 5px 1px #f1f1f1;
-  height: 400px;
+  height: 430px;
+  width: 100%;
+  margin: 10px;
 
   p:nth-child(2) {
     font-size: 1rem;
@@ -16,7 +18,7 @@ export const CardContainer = styled.div`
     font-weight: 700;
   }
   p:nth-child(4) {
-    font-size: .8rem;
+    font-size: 0.8rem;
     margin-top: 10px;
   }
   button {
@@ -25,7 +27,7 @@ export const CardContainer = styled.div`
   &:hover {
     border: 1px solid #086d72;
     transition: 1s;
-    height: 400px;
+    min-height: 430px;
     p:nth-child(4) {
       display: none;
     }
@@ -47,13 +49,15 @@ export const CardContainer = styled.div`
     }
   }
   @media screen and (max-width: 600px) {
-    min-height: 500px;
-    width: 100%;
+    height: 500px;
+    width: auto;
+    margin: 20px;
+    padding: 20px;
   }
   @media screen and (min-width: 1650px) {
-    min-height: 450px;
+    height: 550px;
   }
-`
+`;
 
 export const CardContent = styled.div`
   background-color: transparent;
@@ -65,11 +69,19 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-`
+  @media screen and (max-width: 600px) {
+    padding: 0px;
+  }
+`;
 export const ImageCard = styled.img`
+  display: flex;
+  justify-content: center;
   width: 100%;
   min-height: 200px;
-`
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
 export const ButtonAddBag = styled.button`
   border: 1px solid #086d72;
   height: 50px;
@@ -85,5 +97,7 @@ export const ButtonAddBag = styled.button`
   span {
     font-size: 1rem;
   }
-`
-
+  @media screen and (max-width: 600px) {
+    width: 80%;
+  }
+`;

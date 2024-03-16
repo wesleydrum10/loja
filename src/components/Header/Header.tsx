@@ -40,7 +40,7 @@ export default function Header({ origin }: OriginPage) {
     let valueParams = `name_like=${e.target.value}`;
     setTimeout(() => {
       setTextParams(valueParams);
-    }, 1000);
+    }, 2000);
   };
 
   useEffect(() => {
