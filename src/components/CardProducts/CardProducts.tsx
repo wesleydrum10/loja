@@ -27,11 +27,11 @@ export default function CardProducts(product: Products) {
         <ImageCard src={product.image} alt={product.name} />
         <p>{product.name}</p>
         <div>
-          <p>{formatPrice(product.price)}</p>
+          <p>{formatPrice(product.price - (product.price * 30) / 100)}</p>
           {product.discounted_product && <strong>30%</strong>}{" "}
         </div>
         {product.discounted_product && (
-          <s>{formatPrice((product.price * 30) / 100 + product.price)}</s>
+          <s>{formatPrice(product.price)}</s>
         )}
         <p className="description">{product.description}</p>
         <button
