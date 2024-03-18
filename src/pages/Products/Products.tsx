@@ -13,7 +13,7 @@ import {
 } from "./styles";
 import CardProducts from "../../components/CardProducts/CardProducts";
 import { useListing } from "../../context/useListing";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { MdOutlineExpandMore, MdOutlineExpandLess } from "react-icons/md";
 import { IoFilterSharp } from "react-icons/io5";
 import { GrSort } from "react-icons/gr";
@@ -80,25 +80,55 @@ export default function ProductsPage() {
     setParamsFilterValue(paramsFilter);
   };
 
-  const handleOrder = () => {
+  const handleOrder = (e: ChangeEvent<HTMLInputElement> | undefined) => {
     let paramsSort = "";
 
-    if (sortOldestInclusionDate) {
-      paramsSort = `_sort=inclusion_date&_order=asc`;
+    switch (e?.target.name) {
+      case "price-desc": {
+        paramsSort = `_sort=price${
+          (sortMostRecentInclusionDate || sortOldestInclusionDate) &&
+          ",inclusion_date"
+        }&_order=desc${
+          (sortMostRecentInclusionDate && ",desc") ||
+          (sortOldestInclusionDate && ",asc")
+        }`;
+        setSortMostRecentPrice(e.target.checked);
+        setSortOldestPrice(false);
+        break;
+      }
+      case "price-asc": {
+        paramsSort = `_sort=price${
+          (sortMostRecentInclusionDate || sortOldestInclusionDate) &&
+          ",inclusion_date"
+        }&_order=asc${
+          (sortMostRecentInclusionDate && ",desc") ||
+          (sortOldestInclusionDate && ",asc")
+        }`;
+        setSortOldestPrice(e.target.checked);
+        setSortMostRecentPrice(false);
+        break;
+      }
+      case "inclusion_date-desc": {
+        paramsSort = `&_sort=inclusion_date${
+          (sortMostRecentPrice || sortOldestPrice) && ",price"
+        }&_order=desc${
+          (sortMostRecentPrice && ",desc") || (sortOldestPrice && ",asc")
+        }`;
+        setSortMostRecentInclusionDate(e.target.checked);
+        setSortOldestInclusionDate(false);
+        break;
+      }
+      case "inclusion_date-asc": {
+        paramsSort = `&_sort=inclusion_date${
+          (sortMostRecentPrice || sortOldestPrice) && ",price"
+        }&_order=asc${
+          (sortMostRecentPrice && ",desc") || (sortOldestPrice && ",asc")
+        }`;
+        setSortOldestInclusionDate(e.target.checked);
+        setSortMostRecentInclusionDate(false);
+        break;
+      }
     }
-
-    if (sortMostRecentInclusionDate) {
-      paramsSort = `&_sort=inclusion_date&_order=desc`;
-    }
-
-    if (sortOldestPrice) {
-      paramsSort = `&_sort=price&_order=asc`;
-    }
-
-    if (sortMostRecentPrice) {
-      paramsSort = `&_sort=price&_order=desc`;
-    }
-
     setParamsSortValue(paramsSort);
   };
 
@@ -114,17 +144,7 @@ export default function ProductsPage() {
     } else if (paramsSortValue) {
       searchProducts(paramsSortValue);
     }
-  }, [
-    paramsFilterValue,
-    paramsSortValue,
-    filterNameValue,
-    filterInclusionDateValue,
-    filterPriceValue,
-    sortMostRecentInclusionDate,
-    sortOldestInclusionDate,
-    sortOldestPrice,
-    sortMostRecentPrice,
-  ]);
+  }, [paramsSortValue, paramsFilterValue]);
 
   return (
     <>
@@ -258,23 +278,19 @@ export default function ProductsPage() {
                       <span>
                         Mais Antigos
                         <input
-                          checked={sortOldestInclusionDate}
+                          checked={sortMostRecentInclusionDate}
                           type="radio"
-                          name="inclusion_date"
-                          onChange={(e) =>
-                            setSortOldestInclusionDate(e.target.checked)
-                          }
+                          name="inclusion_date-desc"
+                          onChange={(e) => handleOrder(e)}
                         />
                       </span>
                       <span>
                         Mais Recentes
                         <input
-                          checked={sortMostRecentInclusionDate}
+                          checked={sortOldestInclusionDate}
                           type="radio"
-                          name="inclusion_date"
-                          onChange={(e) =>
-                            setSortMostRecentInclusionDate(e.target.checked)
-                          }
+                          name="inclusion_date-asc"
+                          onChange={(e) => handleOrder(e)}
                         />
                       </span>
                     </BoxSortContent>
@@ -296,10 +312,8 @@ export default function ProductsPage() {
                         <input
                           checked={sortMostRecentPrice}
                           type="radio"
-                          name="price"
-                          onChange={(e) =>
-                            setSortMostRecentPrice(e.target.checked)
-                          }
+                          name="price-desc"
+                          onChange={(e) => handleOrder(e)}
                         />
                       </span>
                       <span>
@@ -307,14 +321,13 @@ export default function ProductsPage() {
                         <input
                           checked={sortOldestPrice}
                           type="radio"
-                          name="price"
-                          onChange={(e) => setSortOldestPrice(e.target.checked)}
+                          name="price-asc"
+                          onChange={(e) => handleOrder(e)}
                         />
                       </span>
                     </BoxSortContent>
                   )}
                 </ContentLabel>
-                <BtnFilter onClick={() => handleOrder()}>Ordenar</BtnFilter>
               </>
             )}
           </FilterContainer>
@@ -330,6 +343,7 @@ export default function ProductsPage() {
               description={product.description}
               id={product.id}
               amount={product.amount}
+              discounted_product={product.discounted_product}
             />
           ))}
         </CardList>

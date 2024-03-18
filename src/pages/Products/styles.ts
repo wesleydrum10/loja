@@ -52,6 +52,7 @@ export const CardList = styled.div`
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  padding: 0 20px;
   @media screen and (max-width: 1550px) {
     grid-template-columns: repeat(3, 1fr);
     width: 80%;
@@ -78,7 +79,7 @@ export const FilterContainer = styled.div`
   display: flex;
   position: absolute;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   z-index: 9999;
   top: 0;
   background-color: #f1f1f1f1;
@@ -103,6 +104,7 @@ export const FilterContainer = styled.div`
     border-bottom: 1px solid #086d72;
     color: #086d72;
     font-weight: 600;
+    touch-action: none;
   }
 
   input:focus-visible {

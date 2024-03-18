@@ -89,7 +89,7 @@ export default function Header({ origin }: OriginPage) {
             />
           ))}
           {!!bagFormatted.length ? (
-            <a href="/checkout">
+            <a onClick={() => navigate('/checkout')}>
               <BtnCheckout>Ir para Checkout</BtnCheckout>
             </a>
           ) : (

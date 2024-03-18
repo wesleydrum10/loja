@@ -28,7 +28,7 @@ export const CardContainer = styled.div`
     border: 1px solid #086d72;
     transition: 1s;
     min-height: 430px;
-    p:nth-child(4) {
+    .description {
       display: none;
     }
     button {
@@ -69,6 +69,28 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  p:nth-child(2) {
+    font-weight: 700;
+  }
+  p:nth-child(1) {
+    color: #07bc0c;
+  }
+  p:nth-child(5) {
+    font-size: .8rem;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+  }
+  strong {
+    color: #ffffff;
+    font-weight: 900;
+    background-color: #ffa500;
+    border-radius: 4px;
+    padding: 0 2px;
+  }
   @media screen and (max-width: 600px) {
     padding: 0px;
   }

@@ -51,7 +51,7 @@ export default function BagItens(product: ProductsInBag) {
           <p>{bagItemsAmount[product.id]}x</p>
           <CgAdd
             fontSize={20}
-            color="#006400"
+            color="#07bc0c"
             cursor="pointer"
             onClick={() => {
               handleProductIncrement(product);

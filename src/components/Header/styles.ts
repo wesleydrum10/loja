@@ -53,7 +53,11 @@ export const CountBag = styled.div`
   position: absolute;
   margin-top: 20px;
   span {
-    font-size: 1rem;
+    font-size: .8rem;
+  }
+  @media screen and(max-width: 600px) {
+    margin-left: 16px;
+    margin-top: 15px;
   }
 `
 export const ContentCart = styled.div`
@@ -122,7 +126,7 @@ export const ImageBag = styled.img`
   width: 44px;
   height: 44px;
   @media screen and (max-width: 600px) {
-    width: auto;
-    height: auto;
+    width: 34px;
+    height: 34px;
   }
 `

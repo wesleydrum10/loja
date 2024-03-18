@@ -30,11 +30,13 @@ export const BtnFinished = styled.button`
     width: 300px;
     height: 50px;
     border: 0;
-    background-color: #006400;
+    background-color: #07bc0c;
     color: #ffffff;
+    font-weight: 700;
     &:hover {
-        transition: 2s;
-        opacity: .6
+        transition: .7s;
+        opacity: .6;
+        color: #000000
     }
     
 `
