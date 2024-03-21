@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import 'react-toastify/dist/ReactToastify.css';
+import { createGlobalStyle } from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
 
 export default createGlobalStyle`
   * {
@@ -25,4 +25,25 @@ export default createGlobalStyle`
   button, a {
     cursor: pointer;
   }
+  .loading::after {
+        display: block;
+        content: "";
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+        
+        background: linear-gradient(90deg, transparent,
+                rgba(255, 255, 255, 0.9), transparent);
+   
+        /* Adding animation */
+        animation: loading 0.8s infinite;
+    }
+   
+    /* Loading Animation */
+    @keyframes loading {
+        100% {
+            transform: translateX(100%);
+        }
+    }
 `;

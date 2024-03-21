@@ -76,7 +76,7 @@ export const CardContent = styled.div`
     color: #07bc0c;
   }
   p:nth-child(5) {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   div {
     display: flex;
@@ -122,4 +122,16 @@ export const ButtonAddBag = styled.button`
   @media (max-width: 600px) {
     width: 80%;
   }
+`;
+
+export const CardContainerSkeleton = styled.div`
+  transition: 1s;
+  border-radius: 4px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 1px 5px 1px #f1f1f1;
+  height: 430px;
+  width: 100%;
+  margin: 0px 10px;
+  background-color: rgba(222,222,222,.5);
+
 `;
