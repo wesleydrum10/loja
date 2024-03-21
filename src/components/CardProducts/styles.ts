@@ -133,5 +133,7 @@ export const CardContainerSkeleton = styled.div`
   width: 100%;
   margin: 0px 10px;
   background-color: rgba(222,222,222,.5);
-
+  @media (max-width: 600px) {
+    width: auto;
+  }
 `;

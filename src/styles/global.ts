@@ -26,24 +26,19 @@ export default createGlobalStyle`
     cursor: pointer;
   }
   .loading::after {
-        display: block;
-        content: "";
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform: translateX(-100%);
-        
-        background: linear-gradient(90deg, transparent,
-                rgba(255, 255, 255, 0.9), transparent);
-   
-        /* Adding animation */
-        animation: loading 0.8s infinite;
+    display: block;
+    content: '';
+    position: relative;
+    height: 100%;
+    transform: translateX(-100%);  
+    background: linear-gradient(90deg, transparent,
+    rgba(255, 255, 255, 0.9), transparent);
+    animation: loading 0.8s infinite;
     }
    
-    /* Loading Animation */
     @keyframes loading {
-        100% {
-            transform: translateX(100%);
-        }
+      100% {
+        transform: translateX(100%);
+      }
     }
 `;
