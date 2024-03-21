@@ -5,6 +5,7 @@ import {
   CardList,
   ClearAction,
   ClearFiltersContainer,
+  Close,
   ContentLabel,
   FilterContainer,
   MainContainer,
@@ -42,7 +43,7 @@ export default function ProductsPage() {
   const [isFilter, setIsFilter] = useState<boolean>(false);
   const [isSort, setIsSort] = useState<boolean>(false);
 
-  const { searchProducts, listingProducts } = useListing();
+  const { searchProducts, listingProducts, textParams } = useListing();
 
   const ClearFilters = () => {
     listingProducts();
@@ -56,10 +57,14 @@ export default function ProductsPage() {
   };
 
   const ClearSorts = () => {
-    listingProducts();
     setParamsSortValue(undefined);
-    setOrderInclusionDate(false);
-    setOrderPrice(false);
+    setSortMostRecentPrice(false);
+    setSortOldestPrice(false);
+    setSortMostRecentInclusionDate(false);
+    setSortOldestInclusionDate(false);
+    if(!paramsFilterValue && !textParams){
+      listingProducts()
+    }
   };
 
   const handleFilters = () => {
@@ -74,7 +79,7 @@ export default function ProductsPage() {
     }
 
     if (!!filterPriceValue) {
-      paramsFilter = `${paramsFilter}&q=${filterPriceValue}`;
+      paramsFilter = `${paramsFilter}&price=${filterPriceValue}`;
     }
 
     setParamsFilterValue(paramsFilter);
@@ -85,45 +90,49 @@ export default function ProductsPage() {
 
     switch (e?.target.name) {
       case "price-desc": {
-        paramsSort = `_sort=price${
-          (sortMostRecentInclusionDate || sortOldestInclusionDate) &&
-          ",inclusion_date"
-        }&_order=desc${
-          (sortMostRecentInclusionDate && ",desc") ||
-          (sortOldestInclusionDate && ",asc")
-        }`;
+        if (sortMostRecentInclusionDate) {
+          paramsSort = `&_sort=price,inclusion_date&_order=desc,desc`;
+        } else if (sortOldestInclusionDate) {
+          paramsSort = `&_sort=price,inclusion_date&_order=desc,asc`;
+        } else {
+          paramsSort = `&_sort=price&_order=desc`;
+        }
         setSortMostRecentPrice(e.target.checked);
         setSortOldestPrice(false);
         break;
       }
       case "price-asc": {
-        paramsSort = `_sort=price${
-          (sortMostRecentInclusionDate || sortOldestInclusionDate) &&
-          ",inclusion_date"
-        }&_order=asc${
-          (sortMostRecentInclusionDate && ",desc") ||
-          (sortOldestInclusionDate && ",asc")
-        }`;
+        if (sortMostRecentInclusionDate) {
+          paramsSort = `&_sort=price,inclusion_date&_order=asc,desc`;
+        } else if (sortOldestInclusionDate) {
+          paramsSort = `&_sort=price,inclusion_date&_order=asc,asc`;
+        } else {
+          paramsSort = `&_sort=price&_order=asc`;
+        }
         setSortOldestPrice(e.target.checked);
         setSortMostRecentPrice(false);
         break;
       }
       case "inclusion_date-desc": {
-        paramsSort = `&_sort=inclusion_date${
-          (sortMostRecentPrice || sortOldestPrice) && ",price"
-        }&_order=desc${
-          (sortMostRecentPrice && ",desc") || (sortOldestPrice && ",asc")
-        }`;
+        if (sortMostRecentPrice) {
+          paramsSort = `&_sort=inclusion_date,price&_order=desc,desc`;
+        } else if (sortOldestPrice) {
+          paramsSort = `&_sort=inclusion_date,price&_order=desc,asc`;
+        } else {
+          paramsSort = `&_sort=inclusion_date&_order=desc`;
+        }
         setSortMostRecentInclusionDate(e.target.checked);
         setSortOldestInclusionDate(false);
         break;
       }
       case "inclusion_date-asc": {
-        paramsSort = `&_sort=inclusion_date${
-          (sortMostRecentPrice || sortOldestPrice) && ",price"
-        }&_order=asc${
-          (sortMostRecentPrice && ",desc") || (sortOldestPrice && ",asc")
-        }`;
+        if (sortMostRecentPrice) {
+          paramsSort = `&_sort=inclusion_date,price&_order=asc,desc`;
+        } else if (sortOldestPrice) {
+          paramsSort = `&_sort=inclusion_date,price&_order=asc,asc`;
+        } else {
+          paramsSort = `&_sort=inclusion_date&_order=asc`;
+        }
         setSortOldestInclusionDate(e.target.checked);
         setSortMostRecentInclusionDate(false);
         break;
@@ -144,7 +153,17 @@ export default function ProductsPage() {
     } else if (paramsSortValue) {
       searchProducts(paramsSortValue);
     }
-  }, [paramsSortValue, paramsFilterValue]);
+
+    if (paramsSortValue && textParams) {
+      searchProducts(`${textParams}${paramsSortValue}`);
+    } else if (paramsSortValue) {
+      searchProducts(paramsSortValue);
+    }
+
+    if (!textParams && !paramsFilterValue) {
+      listingProducts();
+    }
+  }, [paramsSortValue, paramsFilterValue, textParams]);
 
   return (
     <>
@@ -166,10 +185,17 @@ export default function ProductsPage() {
       <MainContainer>
         {(isFilter || isSort) && (
           <FilterContainer>
+            <Close
+              onClick={() => {
+                setIsFilter(false), setIsSort(false);
+              }}
+            >
+              X
+            </Close>
             {isFilter && (
               <>
                 <ClearFiltersContainer>
-                  <h4>Filtrar por: </h4>
+                  <h3>Filtros: </h3>
                   {paramsFilterValue !== undefined && (
                     <ClearAction onClick={() => ClearFilters()}>
                       <CgTrash />
@@ -254,7 +280,7 @@ export default function ProductsPage() {
             {isSort && (
               <>
                 <ClearFiltersContainer>
-                  <h4>Ordenar por: </h4>
+                  <h3>Ordenar </h3>
                   {paramsSortValue !== undefined && (
                     <ClearAction onClick={() => ClearSorts()}>
                       <CgTrash />
@@ -278,7 +304,7 @@ export default function ProductsPage() {
                       <span>
                         Mais Antigos
                         <input
-                          checked={sortMostRecentInclusionDate}
+                          checked={!!sortMostRecentInclusionDate}
                           type="radio"
                           name="inclusion_date-desc"
                           onChange={(e) => handleOrder(e)}
@@ -287,7 +313,7 @@ export default function ProductsPage() {
                       <span>
                         Mais Recentes
                         <input
-                          checked={sortOldestInclusionDate}
+                          checked={!!sortOldestInclusionDate}
                           type="radio"
                           name="inclusion_date-asc"
                           onChange={(e) => handleOrder(e)}
@@ -310,7 +336,7 @@ export default function ProductsPage() {
                       <span>
                         Maior
                         <input
-                          checked={sortMostRecentPrice}
+                          checked={!!sortMostRecentPrice}
                           type="radio"
                           name="price-desc"
                           onChange={(e) => handleOrder(e)}
@@ -319,7 +345,7 @@ export default function ProductsPage() {
                       <span>
                         Menor
                         <input
-                          checked={sortOldestPrice}
+                          checked={!!sortOldestPrice}
                           type="radio"
                           name="price-asc"
                           onChange={(e) => handleOrder(e)}
@@ -344,6 +370,7 @@ export default function ProductsPage() {
               id={product.id}
               amount={product.amount}
               discounted_product={product.discounted_product}
+              discounted={product.discounted}
             />
           ))}
         </CardList>

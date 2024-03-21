@@ -6,6 +6,7 @@ export interface Products {
     image: string;
     description: string;
     discounted_product?: boolean;
+    discounted: number | 0;
     amount: number;
 }
 

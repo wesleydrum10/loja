@@ -16,7 +16,7 @@ export const ShowFilter = styled.span`
   div {
     display: flex;
   }
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     justify-content: center;
     gap: 20px;
     margin-left: 0;
@@ -35,9 +35,8 @@ export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   margin: 10px 2vw 10px;
-  height: 65vh;
   width: 100%;
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     margin: 0;
     height: 83vh;
@@ -47,27 +46,27 @@ export const MainContainer = styled.main`
 export const CardList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: 90%;
+  width: 85%;
   gap: 30px;
-  height: 100%;
+  height: 73vh;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 0 20px;
-  @media screen and (max-width: 1550px) {
+  @media (max-width: 1550px) {
     grid-template-columns: repeat(3, 1fr);
     width: 80%;
   }
-  @media screen and (max-width: 1250px) {
+  @media (max-width: 1250px) {
     grid-template-columns: repeat(2, 1fr);
     width: 70%;
   }
 
-  @media screen and (max-width: 950px) {
+  @media (max-width: 950px) {
     grid-template-columns: repeat(1, 1fr);
     width: 60%;
   }
 
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
     width: auto;
     padding: 0 10px;
@@ -84,9 +83,14 @@ export const FilterContainer = styled.div`
   top: 0;
   background-color: #f1f1f1f1;
   left: 0;
-  margin-left: 20px;
-  margin-top: 26vh;
-
+  height: 100vh;
+  div:nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
   label {
     display: flex;
     justify-content: space-between;
@@ -119,33 +123,33 @@ export const FilterContainer = styled.div`
     margin-top: 60px;
   }
 
-  @media screen and (max-width: 1250px) {
+  @media (max-width: 1250px) {
     width: 30%;
   }
 
-  @media screen and (max-width: 950px) {
+  @media (max-width: 950px) {
     width: 40%;
   }
 
-  @media screen and (max-width: 600px) {
-    width: 95%;
-    margin: 10px;
-    top: 0;
-    margin-top: 20vh;
+  @media (max-width: 600px) {
+    width: 85%;
+    font-size: 1.2rem;
   }
 `;
 export const ContentLabel = styled.div`
-  box-shadow: 1px 1px 5px 1px #f1f1f1;
   padding: 5px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0 20px;
 `;
 export const BtnFilter = styled.button`
-  width: 100%;
+  width: 90%;
   height: 50px;
-  background-color: #101010;
+  background-color: #086d72;
   color: #ffffff;
+  border: 0;
+  margin: 0 auto;
   &:disabled {
     opacity: 0.2;
     cursor: not-allowed;
@@ -162,17 +166,28 @@ export const BoxSortContent = styled.div`
   flex-direction: column;
   gap: 10px;
   span {
+    margin-left: 20px;
     font-size: 14px;
+    font-weight: 700;
     display: flex;
     gap: 10px;
+    width: 35%;
+    justify-content: space-between;
+  }
+  @media (max-width: 600px) {
+    span {
+      width: 42%;
+    }
   }
 `;
 export const ClearFiltersContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px 20px 0px 5px;
+  gap: 30px;
+  height: 10%;
+  padding: 0 20px;
+  color: #ffffff;
+  background-color: #000000;
 `;
 export const ClearAction = styled.div`
   display: flex;
@@ -183,3 +198,9 @@ export const ClearAction = styled.div`
     font-size: 14px;
   }
 `;
+export const Close = styled.div`
+  position: absolute;
+  top: 3vh;
+  left: 93%;
+  color: #ffffff;
+`

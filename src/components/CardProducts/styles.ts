@@ -7,7 +7,7 @@ export const CardContainer = styled.div`
   box-shadow: 1px 1px 5px 1px #f1f1f1;
   height: 430px;
   width: 100%;
-  margin: 10px;
+  margin: 0px 10px;
 
   p:nth-child(2) {
     font-size: 1rem;
@@ -48,13 +48,13 @@ export const CardContainer = styled.div`
       }
     }
   }
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     height: 500px;
     width: auto;
-    margin: 20px;
+    margin: 10px;
     padding: 20px;
   }
-  @media screen and (min-width: 1650px) {
+  @media (min-width: 1650px) {
     height: 550px;
   }
 `;
@@ -91,7 +91,7 @@ export const CardContent = styled.div`
     border-radius: 4px;
     padding: 0 2px;
   }
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     padding: 0px;
   }
 `;
@@ -100,7 +100,7 @@ export const ImageCard = styled.img`
   justify-content: center;
   width: 100%;
   min-height: 200px;
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     width: 100%;
   }
 `;
@@ -119,7 +119,7 @@ export const ButtonAddBag = styled.button`
   span {
     font-size: 1rem;
   }
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     width: 80%;
   }
 `;

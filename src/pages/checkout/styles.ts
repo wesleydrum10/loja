@@ -1,15 +1,15 @@
 import { styled } from 'styled-components';
 
 export const ChekoutContainer = styled.main`
-    height: 70vh;
     padding: 5vh 20vw 10vh;
     overflow-y: scroll;
+    height: 80vh;
     h2 {
         text-align: center;
     }
-    @media screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         padding: 5vw;
-        height: 100vh;
+        min-height: 85vh;
     }
 `
 export const FinalizePurchaseContent = styled.div`
@@ -18,7 +18,7 @@ export const FinalizePurchaseContent = styled.div`
     align-items: center;
     margin-top: 50px;
 
-    @media screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         flex-direction: column;
         width: 100%;
         margin-top: 30px;
@@ -37,6 +37,9 @@ export const BtnFinished = styled.button`
         transition: .7s;
         opacity: .6;
         color: #000000
+    }
+    @media (max-width: 600px) {
+        width: 100%;
     }
     
 `

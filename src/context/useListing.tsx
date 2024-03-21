@@ -12,12 +12,15 @@ interface ListingContextData {
     productsList: Products[] | undefined;
     listingProducts: () => void;
     searchProducts: (params: string) => void;
+    textParams: string | undefined;
+    setTextParams: (params: string) => void;
 }
 
 const ListingContext = createContext<ListingContextData>({} as ListingContextData)
 
 export function ListingProvider({ children }: ListingProviderProps) {
     const [productsList, setProductsList] = useState<Products[]>()
+    const [textParams, setTextParams] = useState<string>();
 
     async function listingProducts() {
         const { data } = await api.get<Products[]>('/produtos')
@@ -47,7 +50,7 @@ export function ListingProvider({ children }: ListingProviderProps) {
 
     return (
         <ListingContext.Provider
-            value={{ productsList, listingProducts, searchProducts }}
+            value={{ productsList, listingProducts, searchProducts, textParams, setTextParams }}
         >
             {children}
         </ListingContext.Provider>

@@ -7,7 +7,8 @@
       "inclusion_date": "2024-02-01",
       "image": "https://imgs.casasbahia.com.br/55058201/1g.jpg?imwidth=1000",
       "description": "Um smartphone poderoso com recursos avançados.",
-      "discounted_product": true,
+      "discounted_product": false,
+      "discounted": 30,
       "amount": 15
     },
     {
@@ -17,7 +18,8 @@
       "inclusion_date": "2024-02-02",
       "image": "https://imgs.casasbahia.com.br/55065262/1g.jpg?imwidth=1000",
       "description": "Notebook de alto desempenho para trabalho e entretenimento.",
-      "discounted_product": false,
+      "discounted_product": true,
+      "discounted": 5,
       "amount": 2
     },
     {
@@ -28,6 +30,7 @@
       "image": "https://imgs.casasbahia.com.br/1560549447/1xg.jpg?imwidth=1000",
       "description": "Fones de ouvido sem fio premium com cancelamento de ruído.",
       "discounted_product": true,
+      "discounted": 30,
       "amount": 20
     },
     {
@@ -37,7 +40,8 @@
       "inclusion_date": "2024-02-04",
       "image": "https://imgs.casasbahia.com.br/55060824/1g.jpg?imwidth=1000",
       "description": "Mergulhe em imagens deslumbrantes em 4K com esta smart TV.",
-      "discounted_product": false,
+      "discounted_product": true,
+      "discounted": 10,
       "amount": 3
     },
     {
@@ -48,6 +52,7 @@
       "image": "https://imgs.casasbahia.com.br/55065289/1g.jpg?imwidth=1000",
       "description": "Console de jogos de próxima geração para uma experiência de jogo incomparável.",
       "discounted_product": true,
+      "discounted": 8,
       "amount": 2
     },
     {
@@ -58,6 +63,7 @@
       "image": "https://imgs.casasbahia.com.br/1556120890/1xg.jpg?imwidth=1000",
       "description": "Ark Monitor 20 + Intel Core i7 860 8GB GT 730 4GB SSD 480GB Windows 10 Pro Combo Gamer",
       "discounted_product": true,
+      "discounted": 30,
       "amount": 10
     },
     {
@@ -67,7 +73,8 @@
       "inclusion_date": "2023-12-06",
       "image": "https://imgs.casasbahia.com.br/1543361584/1xg.jpg?imwidth=1000",
       "description": "Capture momentos incríveis com esta câmera digital profissional.",
-      "discounted_product": false,
+      "discounted_product": true,
+      "discounted": 30,
       "amount": 12
     },
     {
@@ -78,6 +85,7 @@
       "image": "https://imgs.casasbahia.com.br/1523963915/1xg.jpg?imwidth=1000",
       "description": "Desfrute de áudio de alta qualidade com esta caixa de som Bluetooth premium.",
       "discounted_product": true,
+      "discounted": 5,
       "amount": 8
     },
     {
@@ -87,7 +95,8 @@
       "inclusion_date": "2023-02-08",
       "image": "https://imgs.casasbahia.com.br/1564190714/1xg.jpg?imwidth=1000",
       "description": "Imprima, copie e digitalize sem fio com esta impressora multifuncional.",
-      "discounted_product": false,
+      "discounted_product": true,
+      "discounted": 30,
       "amount": 6
     },
     {
@@ -97,7 +106,8 @@
       "inclusion_date": "2024-01-09",
       "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
-      "discounted_product": true,
+      "discounted_product": false,
+      "discounted": 10,
       "amount": 5
     },
     {
@@ -108,6 +118,7 @@
       "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
       "discounted_product": true,
+      "discounted": 30,
       "amount": 5
     },
     {
@@ -117,7 +128,8 @@
       "inclusion_date": "2024-03-09",
       "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
-      "discounted_product": true,
+      "discounted_product": false,
+      "discounted": 30,
       "amount": 5
     },
     {
@@ -128,6 +140,7 @@
       "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
       "discounted_product": true,
+      "discounted": 30,
       "amount": 5
     },
     {
@@ -138,6 +151,7 @@
       "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
       "discounted_product": true,
+      "discounted": 30,
       "amount": 5
     },
     {
@@ -148,6 +162,7 @@
       "image": "https://imgs.casasbahia.com.br/1505150659/1xg.jpg?imwidth=1000",
       "description": "Mouse projetado para gamers, com iluminação RGB personalizável.",
       "discounted_product": true,
+      "discounted": 30,
       "amount": 5
     }
   ]

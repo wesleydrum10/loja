@@ -12,7 +12,10 @@ export default createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-areas: 'header', 'main', 'footer';
+    grid-template-rows: 10vh, 70vh, 1vh;
   }
 
   body, input, button {

@@ -10,12 +10,13 @@ import {
   ContentCart,
   BtnCheckout,
   ImageBag,
+  ContentHeader,
 } from "./styles";
 import BagItens from "../BagItens/BagItens";
 import { useBag } from "../../context/useBag";
 import { formatPrice } from "../../util/formatPrice";
 import { useListing } from "../../context/useListing";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 interface OriginPage {
   origin: string;
@@ -23,10 +24,9 @@ interface OriginPage {
 
 export default function Header({ origin }: OriginPage) {
   const [showContentCart, setShowContentCart] = useState(false);
-  const [textParams, setTextParams] = useState<string>();
   const { bag } = useBag();
-  const { searchProducts, listingProducts } = useListing();
-  const navigate = useNavigate()
+  const { searchProducts, listingProducts, textParams, setTextParams } = useListing();
+  const navigate = useNavigate();
 
   const itensBag = bag?.length;
 
@@ -40,7 +40,7 @@ export default function Header({ origin }: OriginPage) {
     let valueParams = `name_like=${e.target.value}`;
     setTimeout(() => {
       setTextParams(valueParams);
-    }, 2000);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -53,26 +53,30 @@ export default function Header({ origin }: OriginPage) {
 
   return (
     <HeaderContainer>
-      <a onClick={() => navigate('/')}>
-        <ImageContainer src={Logo} alt="logo" />
-      </a>
+      <ContentHeader onClick={() => navigate("/")}>
+        <ImageContainer src={Logo} alt="logo" $origin/>
+      </ContentHeader>
       {origin !== "checkout" && (
         <>
-          <InputContainer
-            type="text"
-            placeholder="Olá, o que você procura?"
-            onChange={(e) => handleInputSearch(e)}
-          />
-          <BagContainer
-            onClick={() => {
-              origin !== "checkout" && setShowContentCart(!showContentCart);
-            }}
-          >
-            <CountBag>
-              <span>{itensBag}</span>
-            </CountBag>
-            <ImageBag src={Bag} alt="Sacola" />
-          </BagContainer>
+          <ContentHeader>
+            <InputContainer
+              type="search"
+              placeholder="Olá, o que você procura?"
+              onChange={(e) => handleInputSearch(e)}
+            />
+          </ContentHeader>
+          <ContentHeader>
+            <BagContainer
+              onClick={() => {
+                origin !== "checkout" && setShowContentCart(!showContentCart);
+              }}
+            >
+              <CountBag>
+                <span>{itensBag}</span>
+              </CountBag>
+              <ImageBag src={Bag} alt="Sacola" />
+            </BagContainer>
+          </ContentHeader>
         </>
       )}
       {showContentCart && (
@@ -88,13 +92,12 @@ export default function Header({ origin }: OriginPage) {
               key={product.id}
             />
           ))}
-          {!!bagFormatted.length ? (
-            <a onClick={() => navigate('/checkout')}>
+          {!!bagFormatted.length && (
+            <a onClick={() => navigate("/checkout")}>
               <BtnCheckout>Ir para Checkout</BtnCheckout>
             </a>
-          ) : (
-            <p>Sem itens na sacola.</p>
           )}
+          {!bagFormatted.length && <p>Sacola vazia</p>}
         </ContentCart>
       )}
     </HeaderContainer>

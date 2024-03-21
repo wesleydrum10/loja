@@ -1,45 +1,45 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
   gap: 30px;
   background-color: #101010;
-  @media screen and (max-width: 600px) {
-    height: 100%;
-    gap: 5px;
+  @media (max-width: 600px) {
+    gap: 25px;
   }
-`
-export const ImageContainer = styled.img`
-  width: 10vw;
+`;
+export const ImageContainer = styled.img<{ $origin?: boolean }>`
+  width: ${(props) => (props.$origin && "8vw")};
   height: 100%;
-  @media screen and (max-width: 600px) {
-    width: 20vw;
+  cursor: pointer;
+  @media (max-width: 600px) {
+    width: 25vw;
   }
-`
+`;
 
 export const InputContainer = styled.input`
   display: flex;
   outline: none;
-  width: 40%;
+  width: 100%;
   height: 40px;
   border: 0;
   padding: 0 10px;
-  @media screen and (max-width: 600px) {
-    display: none;
-    width: 0%;
+  @media (max-width: 600px) {
+    width: 45vw;
   }
-`
+`;
+
 export const BagContainer = styled.div`
-  width: 7%;
+  width: 33%;
   cursor: pointer;
-  @media screen and(max-width: 600px) {
-    width: 100%;
+  @media (max-width: 600px) {
+    width: 23%;
   }
-`
+`;
+
 export const CountBag = styled.div`
   display: flex;
   width: 20px;
@@ -48,34 +48,34 @@ export const CountBag = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  margin-left: 25px;
+  margin-left: 28px;
   color: #ffffff;
   position: absolute;
   margin-top: 20px;
   span {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
-  @media screen and(max-width: 600px) {
+  @media (max-width: 600px) {
     margin-left: 16px;
     margin-top: 15px;
   }
-`
+`;
 export const ContentCart = styled.div`
   position: absolute;
-  width: 400px;
+  width: 30%;
   max-height: 400px;
   background-color: #ffffff;
-  right: 12vw;
-  margin-top: 10vh;
+  right: 21vw;
   border-radius: 4px;
   padding: 10px;
   box-shadow: 1px 1px 5px #000000;
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 100000;
+  z-index: 1000;
+  top: 10vh;
 
   &::-webkit-scrollbar-track {
-    border-radius:4px;
+    border-radius: 4px;
     background-color: #ffffff;
   }
 
@@ -97,20 +97,14 @@ export const ContentCart = styled.div`
     outline: none;
     cursor: pointer;
   }
-  
-  @media screen and (max-width: 600px) {
-    width: auto;
+
+  @media (max-width: 600px) {
+    width: 98%;
     max-height: 400px;
     background-color: #ffffff;
-    right: 1vw;
-    top: 0;
-    margin: 20px 10px;
+    right: inherit;
   }
-
-  @media screen and (max-width: 1300px) {
-    top: 6vh;
-  }
-`
+`;
 export const BtnCheckout = styled.button`
   width: 100%;
   position: relative;
@@ -121,12 +115,18 @@ export const BtnCheckout = styled.button`
   color: #ffffff;
   cursor: pointer;
   border: 0;
-`
+`;
 export const ImageBag = styled.img`
-  width: 44px;
-  height: 44px;
-  @media screen and (max-width: 600px) {
+  width: 48px;
+  height: 40px;
+  @media (max-width: 600px) {
     width: 34px;
     height: 34px;
   }
-`
+`;
+
+export const ContentHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
