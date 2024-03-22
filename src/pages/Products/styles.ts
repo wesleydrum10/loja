@@ -74,14 +74,14 @@ export const CardList = styled.div`
   }
 `;
 export const FilterContainer = styled.div`
-  width: 20%;
+  width: 25%;
   display: flex;
   position: absolute;
   flex-direction: column;
   gap: 20px;
   z-index: 9999;
   top: 0;
-  background-color: #f1f1f1f1;
+  background-color: rgba(333,333,333,.8);
   left: 0;
   height: 100vh;
   div:nth-child(1) {
@@ -96,15 +96,17 @@ export const FilterContainer = styled.div`
     justify-content: space-between;
     gap: 20px;
     width: 100%;
-    color: #086d72;
+    color: #000000;
     font-weight: 600;
+    padding-right: 10px;
   }
 
   input {
     outline: none;
     border: 0;
-    width: auto;
+    width: 15%;
     background-color: transparent;
+    height: 20px;
     border-bottom: 1px solid #086d72;
     color: #086d72;
     font-weight: 600;
@@ -133,15 +135,17 @@ export const FilterContainer = styled.div`
 
   @media (max-width: 600px) {
     width: 85%;
-    font-size: 1.2rem;
+    background-color: #f1f1f1f1;
+    input {
+      font-size: 16px;
+    }
   }
 `;
 export const ContentLabel = styled.div`
-  padding: 5px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 0 20px;
+  padding: 0 0px 0px 20px;
 `;
 export const BtnFilter = styled.button`
   width: 90%;
@@ -164,6 +168,7 @@ export const EmptyReturn = styled.div`
 export const BoxSortContent = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
   span {
     margin-left: 20px;
@@ -171,8 +176,9 @@ export const BoxSortContent = styled.div`
     font-weight: 700;
     display: flex;
     gap: 10px;
-    width: 35%;
+    width: 60%;
     justify-content: space-between;
+    align-items: center;
   }
   @media (max-width: 600px) {
     span {
@@ -203,4 +209,4 @@ export const Close = styled.div`
   top: 3vh;
   left: 93%;
   color: #ffffff;
-`
+`;

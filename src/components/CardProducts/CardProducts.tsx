@@ -31,7 +31,7 @@ export default function CardProducts(product: Products) {
   return (
     <>
       {loading ? (
-        <CardContainerSkeleton  className="loading"/>
+        <CardContainerSkeleton className="loading" />
       ) : (
         <CardContainer>
           <CardContent key={product.id}>
@@ -39,9 +39,11 @@ export default function CardProducts(product: Products) {
             <p>{product.name}</p>
             <div>
               <p>
-                {formatPrice(
-                  product.price - (product.price * product.discounted) / 100
-                )}
+                {product.discounted_product
+                  ? formatPrice(
+                      product.price - (product.price * product.discounted) / 100
+                    )
+                  : formatPrice(product.price)}
               </p>
               {product.discounted_product && (
                 <strong>{product.discounted}%</strong>

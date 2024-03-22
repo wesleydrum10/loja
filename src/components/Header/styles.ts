@@ -29,6 +29,7 @@ export const InputContainer = styled.input`
   padding: 0 10px;
   @media (max-width: 600px) {
     width: 45vw;
+    font-size: 16px;
   }
 `;
 

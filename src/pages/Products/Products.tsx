@@ -160,7 +160,7 @@ export default function ProductsPage() {
       searchProducts(paramsSortValue);
     }
 
-    if (!textParams && !paramsFilterValue) {
+    if (!paramsSortValue && !textParams && !paramsFilterValue) {
       listingProducts();
     }
   }, [paramsSortValue, paramsFilterValue, textParams]);
@@ -195,7 +195,7 @@ export default function ProductsPage() {
             {isFilter && (
               <>
                 <ClearFiltersContainer>
-                  <h3>Filtros: </h3>
+                  <h3>Filtros </h3>
                   {paramsFilterValue !== undefined && (
                     <ClearAction onClick={() => ClearFilters()}>
                       <CgTrash />
